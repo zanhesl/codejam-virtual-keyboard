@@ -14,6 +14,7 @@ export function initiateButtons() {
 
   for (let row of data) {
     const buttonsRow = document.createElement(`div`);
+    buttonsRow.classList.add(`row`);
     const classRow = [];
     for (let key of row) {
       if (key.type == `letter`) {

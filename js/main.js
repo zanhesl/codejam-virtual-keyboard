@@ -15,6 +15,8 @@
     changeLanguage() {}
 
     getValue() {}
+
+    updateValue() {}
   }
 
   const INITIAL_LANGUAGE = `en`;
@@ -37,11 +39,38 @@
       return this.value[this.lang][+this.isShift];
     }
 
+    bind(node) {
+      document.addEventListener(`keydown`, (evt) => {
+        if (evt.code == this.code) {
+          node.classList.add(`active`);
+          document.querySelector(`.main-input`).value += this.getValue();
+        }
+      });
+      document.addEventListener(`keyup`, (evt) => {
+        if (evt.code == this.code) {
+          node.classList.remove(`active`);
+        }
+      });
+
+      node.addEventListener(`mousedown`, (evt) => {
+        node.classList.add(`active`);
+        document.querySelector(`.main-input`).value += this.getValue();
+      });
+      node.addEventListener(`mouseup`, (evt) => {
+        node.classList.remove(`active`);
+      });
+    }
+
     createDom() {
       const letterNode = document.createElement(`div`);
       letterNode.classList.add(`button`, this.wide, this.code);
       letterNode.innerText = this.getValue();
+      this.bind(letterNode);
       return letterNode;
+    }
+
+    updateValue() {
+      document.querySelector(`.${this.code}`).innerText = this.getValue();
     }
   }
 
@@ -57,10 +86,31 @@
       return this.value;
     }
 
+    bind(node) {
+      document.addEventListener(`keydown`, (evt) => {
+        if (evt.code == this.code) {
+          node.classList.add(`active`);
+        }
+      });
+      document.addEventListener(`keyup`, (evt) => {
+        if (evt.code == this.code) {
+          node.classList.remove(`active`);
+        }
+      });
+
+      node.addEventListener(`mousedown`, (evt) => {
+        node.classList.add(`active`);
+      });
+      node.addEventListener(`mouseup`, (evt) => {
+        node.classList.remove(`active`);
+      });
+    }
+
     createDom() {
       const letterNode = document.createElement(`div`);
-      letterNode.classList.add(`button`, this.wide, this.code);
+      letterNode.classList.add(`button`, this.wide, this.value);
       letterNode.innerText = this.value;
+      this.bind(letterNode);
       return letterNode;
     }
   }
@@ -70,8 +120,8 @@
         type: `letter`,
         code: `Digit1`,
         values: {
-          en: [`1`, `1`],
-          ru: [`1`, `1`]
+          en: [`1`, `!`],
+          ru: [`1`, `!`]
         },
         wide: `normal`,
       },
@@ -80,8 +130,8 @@
         type: `letter`,
         code: `Digit2`,
         values: {
-          en: [`2`, `2`],
-          ru: [`2`, `2`]
+          en: [`2`, `@`],
+          ru: [`2`, `"`]
         },
         wide: `normal`,
       },
@@ -90,8 +140,8 @@
         type: `letter`,
         code: `Digit3`,
         values: {
-          en: [`3`, `3`],
-          ru: [`3`, `3`]
+          en: [`3`, `#`],
+          ru: [`3`, `№`]
         },
         wide: `normal`,
       },
@@ -100,8 +150,8 @@
         type: `letter`,
         code: `Digit4`,
         values: {
-          en: [`4`, `4`],
-          ru: [`4`, `4`]
+          en: [`4`, `$`],
+          ru: [`4`, `%`]
         },
         wide: `normal`,
       },
@@ -110,8 +160,8 @@
         type: `letter`,
         code: `Digit5`,
         values: {
-          en: [`5`, `5`],
-          ru: [`5`, `5`]
+          en: [`5`, `%`],
+          ru: [`5`, `:`]
         },
         wide:  `normal`,
       },
@@ -120,8 +170,8 @@
         type: `letter`,
         code: `Digit6`,
         values: {
-          en: [`6`, `6`],
-          ru: [`6`, `6`]
+          en: [`6`, `^`],
+          ru: [`6`, `,`]
         },
         wide:  `normal`,
       },
@@ -130,8 +180,8 @@
         type: `letter`,
         code: `Digit7`,
         values: {
-          en: [`7`, `7`],
-          ru: [`7`, `7`]
+          en: [`7`, `&`],
+          ru: [`7`, `.`]
         },
         wide:  `normal`,
       },
@@ -140,8 +190,8 @@
         type: `letter`,
         code: `Digit8`,
         values: {
-          en: [`8`, `8`],
-          ru: [`8`, `8`]
+          en: [`8`, `*`],
+          ru: [`8`, `;`]
         },
         wide:  `normal`,
       },
@@ -150,8 +200,8 @@
         type: `letter`,
         code: `Digit9`,
         values: {
-          en: [`9`, `9`],
-          ru: [`9`, `9`]
+          en: [`9`, `(`],
+          ru: [`9`, `(`]
         },
         wide:  `normal`,
       },
@@ -160,8 +210,8 @@
         type: `letter`,
         code: `Digit0`,
         values: {
-          en: [`0`, `0`],
-          ru: [`0`, `0`]
+          en: [`0`, `)`],
+          ru: [`0`, `)`]
         },
         wide:  `normal`,
       },
@@ -455,7 +505,7 @@
           en: [`\\`, `|`],
           ru: [`ё`, `Ё`]
         },
-        wide:  `normal`,
+        wide:  `triple`,
       },
     ],
 
@@ -464,7 +514,7 @@
         type: `function`,
         code: `ShiftLeft`,
         value: `Shift`,
-        wide:  `normal`,
+        wide:  `double`,
       },
 
       {
@@ -588,7 +638,7 @@
         type: `function`,
         code: `ShiftRight`,
         value: `Shift`,
-        wide:  `normal`,
+        wide:  `double`,
       }
     ],
 
@@ -617,7 +667,7 @@
       {
         type: `function`,
         code: `Space`,
-        value: ` `,
+        value: `Space`,
         wide:  `space`,
       },
 
@@ -671,6 +721,7 @@
 
     for (let row of data) {
       const buttonsRow = document.createElement(`div`);
+      buttonsRow.classList.add(`row`);
       const classRow = [];
       for (let key of row) {
         if (key.type == `letter`) {
@@ -692,7 +743,155 @@
     return classContainer;
   }
 
+  const LANG_CHANGE = `ControlLeftMetaLeft`;
+  const LANG_CHANGE_1 = `ControlLeftMetaRight`;
+
+  function bindFunction(keysList) {
+    const input = document.querySelector(`.main-input`);
+    //Backspace
+    const backspace = keysList[0].filter((key) => key.code == `Backspace`)[0];
+
+    document.addEventListener(`keydown`, (evt) => {
+      if (evt.code == backspace.code) {
+        input.value = input.value.substr(0, input.value.length - 1);
+      }
+    });
+
+    document.querySelector(`.${backspace.code}`).addEventListener(`mousedown`, (evt) => {
+      input.value = input.value.substr(0, input.value.length - 1);
+    });
+    //Shift
+    document.addEventListener(`keydown`, (evt) => {
+      if (evt.key == `Shift`) {
+        for (let row of keysList) {
+          for (let key of row) {
+            key.isShift = key.isShift ? false : true;
+            key.updateValue();
+          }
+        }
+      }
+    });
+
+    document.addEventListener(`keyup`, (evt) => {
+      if (evt.key == `Shift`) {
+        for (let row of keysList) {
+          for (let key of row) {
+            key.isShift = key.isShift ? false : true;
+            key.updateValue();
+          }
+        }
+      }
+    });
+
+    document.querySelectorAll(`.Shift`).forEach((button) => {
+      button.addEventListener(`mousedown`, (evt) => {
+        for (let row of keysList) {
+          for (let key of row) {
+            key.isShift = key.isShift ? false : true;
+            key.updateValue();
+          }
+        }
+      });
+
+      button.addEventListener(`mouseup`, (evt) => {
+        for (let row of keysList) {
+          for (let key of row) {
+            key.isShift = key.isShift ? false : true;
+            key.updateValue();
+          }
+        }
+      });
+    });
+    //CAPS
+    document.addEventListener(`keydown`, (evt) => {
+      if (evt.code == `CapsLock`) {
+        for (let row of keysList) {
+          for (let key of row) {
+            if (key.code.indexOf(`Key`) >= 0) {
+              key.isShift = key.isShift ? false : true;
+              key.updateValue();
+            }
+          }
+        }
+      }
+    });
+
+    document.addEventListener(`keyup`, (evt) => {
+      if (evt.code == `CapsLock`) {
+        for (let row of keysList) {
+          for (let key of row) {
+            if (key.code.indexOf(`Key`) >= 0) {
+              key.isShift = key.isShift ? false : true;
+              key.updateValue();
+              document.querySelector(`.CapsLock`).classList.remove(`active`);
+            }
+          }
+        }
+      }
+    });
+
+    let counter = true;
+    document.querySelector(`.CapsLock`).addEventListener(`click`, (evt) => {
+      for (let row of keysList) {
+        for (let key of row) {
+          key.isShift = counter ? true : false;
+          key.updateValue();
+          if (counter) {
+            document.querySelector(`.CapsLock`).classList.add(`active`);
+          } else {
+            document.querySelector(`.CapsLock`).classList.remove(`active`);
+          }
+        }
+      }
+      counter = counter ? false : true;
+    });
+
+    //lang
+    let sequence = ``;
+    document.addEventListener(`keydown`, (evt) => {
+      sequence += evt.code;
+      if ((sequence.indexOf(LANG_CHANGE) >= 0)||(sequence.indexOf(LANG_CHANGE_1) >= 0)) {
+        for (let row of keysList) {
+          for (let key of row) {
+            key.changeLanguage();
+            key.updateValue();
+          }
+        }
+        sequence = "";
+      }
+    });
+    //Space
+    document.querySelector(`.Space`).addEventListener(`click`, (evt) => {
+      input.value += ` `;
+    });
+    document.addEventListener(`keydown`, (evt) => {
+      if (evt.code == `Space`) {
+        input.value += ` `;
+      }
+    });
+    //Arrows
+    document.addEventListener(`keydown`, (evt) => {
+      if (evt.code.indexOf(`Arrow`)>=0) {
+        input.focus();
+      }
+    });
+
+    document.querySelector(`.Up`).addEventListener(`click`, (evt) => {
+      input.focus();
+    });
+    document.querySelector(`.Dw`).addEventListener(`click`, (evt) => {
+      input.focus();
+    });
+    document.querySelector(`.Lt`).addEventListener(`click`, (evt) => {
+      input.focus();
+    });
+    document.querySelector(`.Rt`).addEventListener(`click`, (evt) => {
+      input.focus();
+    });
+  }
+
   const buttons  = initiateButtons();
+  bindFunction(buttons);
 
 }());
 

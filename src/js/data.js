@@ -3,8 +3,8 @@ export const data = [
       type: `letter`,
       code: `Digit1`,
       values: {
-        en: [`1`, `1`],
-        ru: [`1`, `1`]
+        en: [`1`, `!`],
+        ru: [`1`, `!`]
       },
       wide: `normal`,
     },
@@ -13,8 +13,8 @@ export const data = [
       type: `letter`,
       code: `Digit2`,
       values: {
-        en: [`2`, `2`],
-        ru: [`2`, `2`]
+        en: [`2`, `@`],
+        ru: [`2`, `"`]
       },
       wide: `normal`,
     },
@@ -23,8 +23,8 @@ export const data = [
       type: `letter`,
       code: `Digit3`,
       values: {
-        en: [`3`, `3`],
-        ru: [`3`, `3`]
+        en: [`3`, `#`],
+        ru: [`3`, `№`]
       },
       wide: `normal`,
     },
@@ -33,8 +33,8 @@ export const data = [
       type: `letter`,
       code: `Digit4`,
       values: {
-        en: [`4`, `4`],
-        ru: [`4`, `4`]
+        en: [`4`, `$`],
+        ru: [`4`, `%`]
       },
       wide: `normal`,
     },
@@ -43,8 +43,8 @@ export const data = [
       type: `letter`,
       code: `Digit5`,
       values: {
-        en: [`5`, `5`],
-        ru: [`5`, `5`]
+        en: [`5`, `%`],
+        ru: [`5`, `:`]
       },
       wide:  `normal`,
     },
@@ -53,8 +53,8 @@ export const data = [
       type: `letter`,
       code: `Digit6`,
       values: {
-        en: [`6`, `6`],
-        ru: [`6`, `6`]
+        en: [`6`, `^`],
+        ru: [`6`, `,`]
       },
       wide:  `normal`,
     },
@@ -63,8 +63,8 @@ export const data = [
       type: `letter`,
       code: `Digit7`,
       values: {
-        en: [`7`, `7`],
-        ru: [`7`, `7`]
+        en: [`7`, `&`],
+        ru: [`7`, `.`]
       },
       wide:  `normal`,
     },
@@ -73,8 +73,8 @@ export const data = [
       type: `letter`,
       code: `Digit8`,
       values: {
-        en: [`8`, `8`],
-        ru: [`8`, `8`]
+        en: [`8`, `*`],
+        ru: [`8`, `;`]
       },
       wide:  `normal`,
     },
@@ -83,8 +83,8 @@ export const data = [
       type: `letter`,
       code: `Digit9`,
       values: {
-        en: [`9`, `9`],
-        ru: [`9`, `9`]
+        en: [`9`, `(`],
+        ru: [`9`, `(`]
       },
       wide:  `normal`,
     },
@@ -93,8 +93,8 @@ export const data = [
       type: `letter`,
       code: `Digit0`,
       values: {
-        en: [`0`, `0`],
-        ru: [`0`, `0`]
+        en: [`0`, `)`],
+        ru: [`0`, `)`]
       },
       wide:  `normal`,
     },
@@ -388,7 +388,7 @@ export const data = [
         en: [`\\`, `|`],
         ru: [`ё`, `Ё`]
       },
-      wide:  `normal`,
+      wide:  `triple`,
     },
   ],
 
@@ -397,7 +397,7 @@ export const data = [
       type: `function`,
       code: `ShiftLeft`,
       value: `Shift`,
-      wide:  `normal`,
+      wide:  `double`,
     },
 
     {
@@ -521,7 +521,7 @@ export const data = [
       type: `function`,
       code: `ShiftRight`,
       value: `Shift`,
-      wide:  `normal`,
+      wide:  `double`,
     }
   ],
 
@@ -550,7 +550,7 @@ export const data = [
     {
       type: `function`,
       code: `Space`,
-      value: ` `,
+      value: `Space`,
       wide:  `space`,
     },
 

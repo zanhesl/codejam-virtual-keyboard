@@ -23,11 +23,38 @@ export class LetterButton extends AbstractButton {
     return this.value[this.lang][+this.isShift];
   }
 
+  bind(node) {
+    document.addEventListener(`keydown`, (evt) => {
+      if (evt.code == this.code) {
+        node.classList.add(`active`);
+        document.querySelector(`.main-input`).value += this.getValue();
+      }
+    });
+    document.addEventListener(`keyup`, (evt) => {
+      if (evt.code == this.code) {
+        node.classList.remove(`active`);
+      }
+    });
+
+    node.addEventListener(`mousedown`, (evt) => {
+      node.classList.add(`active`);
+      document.querySelector(`.main-input`).value += this.getValue();
+    });
+    node.addEventListener(`mouseup`, (evt) => {
+      node.classList.remove(`active`);
+    });
+  }
+
   createDom() {
     const letterNode = document.createElement(`div`);
     letterNode.classList.add(`button`, this.wide, this.code);
     letterNode.innerText = this.getValue();
+    this.bind(letterNode);
     return letterNode;
+  }
+
+  updateValue() {
+    document.querySelector(`.${this.code}`).innerText = this.getValue();
   }
 }
 
@@ -43,10 +70,31 @@ export class FunctionButton extends AbstractButton {
     return this.value;
   }
 
+  bind(node) {
+    document.addEventListener(`keydown`, (evt) => {
+      if (evt.code == this.code) {
+        node.classList.add(`active`);
+      }
+    });
+    document.addEventListener(`keyup`, (evt) => {
+      if (evt.code == this.code) {
+        node.classList.remove(`active`);
+      }
+    });
+
+    node.addEventListener(`mousedown`, (evt) => {
+      node.classList.add(`active`);
+    });
+    node.addEventListener(`mouseup`, (evt) => {
+      node.classList.remove(`active`);
+    })
+  }
+
   createDom() {
     const letterNode = document.createElement(`div`);
-    letterNode.classList.add(`button`, this.wide, this.code);
+    letterNode.classList.add(`button`, this.wide, this.value);
     letterNode.innerText = this.value;
+    this.bind(letterNode);
     return letterNode;
   }
 }

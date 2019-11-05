@@ -12,4 +12,6 @@ export class AbstractButton {
   changeLanguage() {}
 
   getValue() {}
+
+  updateValue() {}
 }

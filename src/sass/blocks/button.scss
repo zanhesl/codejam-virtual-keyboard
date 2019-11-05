@@ -1,0 +1,40 @@
+@import '../mixins.scss';
+
+.row {
+  @include flex(space-between, row);
+  padding-bottom: 5px;
+}
+
+.normal {
+  min-width: 50px;
+}
+
+.double {
+  min-width: 100px;
+}
+
+.triple {
+  min-width: 150px;
+}
+
+.space {
+  min-width: 400px;
+}
+
+.button {
+  height: 50px;
+  font-family: Roboto;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #000030;
+  @include flex(space-around,row);
+  align-items: center;
+
+  border-radius: 2px;
+  border: 2px solid #000015;
+}
+
+.active {
+  background-color: skyblue;
+}

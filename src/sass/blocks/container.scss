@@ -1,0 +1,6 @@
+@import '../mixins.scss';
+
+.buttons-container {
+  @include flex(space-around, column);
+  width: 900px;
+}
