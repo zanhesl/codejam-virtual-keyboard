@@ -647,7 +647,7 @@
         type: 'function',
         code: 'ControlLeft',
         value: 'Ctrl',
-        wide: 'normal',
+        wide: 'double',
       },
 
       {
@@ -680,13 +680,6 @@
 
       {
         type: 'function',
-        code: 'AltRight',
-        value: 'Alt',
-        wide: 'normal',
-      },
-
-      {
-        type: 'function',
         code: 'ArrowLeft',
         value: 'Lt',
         wide: 'normal',
@@ -703,6 +696,14 @@
         type: 'function',
         code: 'ArrowRight',
         value: 'Rt',
+        wide: 'normal',
+      },
+
+
+      {
+        type: 'function',
+        code: 'AltRight',
+        value: 'Alt',
         wide: 'normal',
       },
     ],
