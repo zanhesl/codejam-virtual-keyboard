@@ -1,82 +1,72 @@
-const LANG_CHANGE = `ControlLeftMetaLeft`;
-const LANG_CHANGE_1 = `ControlLeftMetaRight`;
+const LANG_CHANGE = 'ShiftLeft';
+const LANG_CHANGE_1 = 'AltLeft';
+const LANG_CHANGE_2 = 'AltRight';
+const LANG_CHANGE_3 = 'ShiftRight';
 
-function updateDOM(keys) {
-  const container = document.querySelector(`.buttons-container`);
-  container.innerHTML = ``;
-  for (let row of keys) {
-    const buttonsRow = document.createElement(`div`);
-    buttonsRow.classList.add(`row`);
-    for (let key of row) {
-      buttonsRow.appendChild(key.createDom());
-    }
-    container.appendChild(buttonsRow);
-  }
-}
 
-export function bindFunction(keysList) {
-  const input = document.querySelector(`.main-input`);
-  //Backspace
-  const backspace = keysList[0].filter((key) => key.code == `Backspace`)[0];
+function bindFunction(keysList) {
+  const input = document.querySelector('.main-input');
+  // Backspace
+  const backspace = keysList[0].filter((key) => key.code === 'Backspace')[0];
 
-  document.addEventListener(`keydown`, (evt) => {
-    if (evt.code == backspace.code) {
+  document.addEventListener('keydown', (evt) => {
+    if (evt.code === backspace.code) {
       input.value = input.value.substr(0, input.value.length - 1);
     }
   });
 
-  document.querySelector(`.${backspace.code}`).addEventListener(`mousedown`, (evt) => {
+  document.querySelector(`.${backspace.code}`).addEventListener('mousedown', () => {
     input.value = input.value.substr(0, input.value.length - 1);
   });
-  //Shift
-  document.addEventListener(`keydown`, (evt) => {
-    if (evt.key == `Shift`) {
-      for (let row of keysList) {
-        for (let key of row) {
-          key.isShift = key.isShift ? false : true;
+  // Shift
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Shift') {
+      for (const row of keysList) {
+        for (const key of row) {
+          key.isShift = !key.isShift;
           key.updateValue();
         }
       }
     }
   });
 
-  document.addEventListener(`keyup`, (evt) => {
-    if (evt.key == `Shift`) {
-      for (let row of keysList) {
-        for (let key of row) {
-          key.isShift = key.isShift ? false : true;
+  document.addEventListener('keyup', (evt) => {
+    if (evt.key === 'Shift') {
+      for (const row of keysList) {
+        for (const key of row) {
+          key.isShift = !key.isShift;
           key.updateValue();
         }
       }
     }
   });
 
-  document.querySelectorAll(`.Shift`).forEach((button) => {
-    button.addEventListener(`mousedown`, (evt) => {
-      for (let row of keysList) {
-        for (let key of row) {
-          key.isShift = key.isShift ? false : true;
+  document.querySelectorAll('.Shift').forEach((button) => {
+    button.addEventListener('mousedown', () => {
+      for (const row of keysList) {
+        for (const key of row) {
+          key.isShift = !key.isShift;
           key.updateValue();
         }
       }
     });
 
-    button.addEventListener(`mouseup`, (evt) => {
-      for (let row of keysList) {
-        for (let key of row) {
-          key.isShift = key.isShift ? false : true;
+    button.addEventListener('mouseup', () => {
+      for (const row of keysList) {
+        for (const key of row) {
+          key.isShift = !key.isShift;
           key.updateValue();
         }
       }
     });
   });
-  //CAPS
-  document.addEventListener(`keydown`, (evt) => {
-    if (evt.code == `CapsLock`) {
-      for (let row of keysList) {
-        for (let key of row) {
-          if (key.code.indexOf(`Key`) >= 0) {
-            key.isShift = key.isShift ? false : true;
+  // CAPS
+  document.addEventListener('keydown', (evt) => {
+    if (evt.code === 'CapsLock') {
+      for (const row of keysList) {
+        for (const key of row) {
+          if (key.code.indexOf('Key') >= 0) {
+            key.isShift = !key.isShift;
             key.updateValue();
           }
         }
@@ -84,14 +74,14 @@ export function bindFunction(keysList) {
     }
   });
 
-  document.addEventListener(`keyup`, (evt) => {
-    if (evt.code == `CapsLock`) {
-      for (let row of keysList) {
-        for (let key of row) {
-          if (key.code.indexOf(`Key`) >= 0) {
-            key.isShift = key.isShift ? false : true;
+  document.addEventListener('keyup', (evt) => {
+    if (evt.code === 'CapsLock') {
+      for (const row of keysList) {
+        for (const key of row) {
+          if (key.code.indexOf('Key') >= 0) {
+            key.isShift = !key.isShift;
             key.updateValue();
-            document.querySelector(`.CapsLock`).classList.remove(`active`);
+            document.querySelector('.CapsLock').classList.remove('active');
           }
         }
       }
@@ -99,61 +89,69 @@ export function bindFunction(keysList) {
   });
 
   let counter = true;
-  document.querySelector(`.CapsLock`).addEventListener(`click`, (evt) => {
-    for (let row of keysList) {
-      for (let key of row) {
-        key.isShift = counter ? true : false;
+  document.querySelector('.CapsLock').addEventListener('click', () => {
+    for (const row of keysList) {
+      for (const key of row) {
+        key.isShift = !!counter;
         key.updateValue();
         if (counter) {
-          document.querySelector(`.CapsLock`).classList.add(`active`);
+          document.querySelector('.CapsLock').classList.add('active');
         } else {
-          document.querySelector(`.CapsLock`).classList.remove(`active`);
+          document.querySelector('.CapsLock').classList.remove('active');
         }
       }
     }
-    counter = counter ? false : true;
+    counter = !counter;
   });
 
-  //lang
-  let sequence = ``;
-  document.addEventListener(`keydown`, (evt) => {
-    sequence += evt.code;
-    if ((sequence.indexOf(LANG_CHANGE) >= 0)||(sequence.indexOf(LANG_CHANGE_1) >= 0)) {
-      for (let row of keysList) {
-        for (let key of row) {
+  // lang
+  const sequence = new Set();
+  document.addEventListener('keydown', (evt) => {
+    sequence.add(evt.code);
+    if ((sequence.has(LANG_CHANGE) && sequence.has(LANG_CHANGE_1))
+      || (sequence.has(LANG_CHANGE) && sequence.has(LANG_CHANGE_2))
+      || (sequence.has(LANG_CHANGE_1) && sequence.has(LANG_CHANGE_3))
+      || (sequence.has(LANG_CHANGE_2) && sequence.has(LANG_CHANGE_3))) {
+      for (const row of keysList) {
+        for (const key of row) {
           key.changeLanguage();
           key.updateValue();
         }
       }
-      sequence = "";
+      sequence.clear();
     }
   });
-  //Space
-  document.querySelector(`.Space`).addEventListener(`click`, (evt) => {
-    input.value += ` `;
+  document.addEventListener('keyup', (evt) => {
+    sequence.delete(evt.code);
   });
-  document.addEventListener(`keydown`, (evt) => {
-    if (evt.code == `Space`) {
-      input.value += ` `;
+  // Space
+  document.querySelector('.Space').addEventListener('click', () => {
+    input.value += ' ';
+  });
+  document.addEventListener('keydown', (evt) => {
+    if (evt.code === 'Space') {
+      input.value += ' ';
     }
   });
-  //Arrows
-  document.addEventListener(`keydown`, (evt) => {
-    if (evt.code.indexOf(`Arrow`)>=0) {
+  // Arrows
+  document.addEventListener('keydown', (evt) => {
+    if (evt.code.indexOf('Arrow') >= 0) {
       input.focus();
     }
   });
 
-  document.querySelector(`.Up`).addEventListener(`click`, (evt) => {
+  document.querySelector('.Up').addEventListener('click', () => {
     input.focus();
   });
-  document.querySelector(`.Dw`).addEventListener(`click`, (evt) => {
+  document.querySelector('.Dw').addEventListener('click', () => {
     input.focus();
   });
-  document.querySelector(`.Lt`).addEventListener(`click`, (evt) => {
+  document.querySelector('.Lt').addEventListener('click', () => {
     input.focus();
   });
-  document.querySelector(`.Rt`).addEventListener(`click`, (evt) => {
+  document.querySelector('.Rt').addEventListener('click', () => {
     input.focus();
   });
 }
+
+export default bindFunction;

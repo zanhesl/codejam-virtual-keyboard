@@ -1,592 +1,594 @@
-export const data = [
+const data = [
   [{
-      type: `letter`,
-      code: `Digit1`,
-      values: {
-        en: [`1`, `!`],
-        ru: [`1`, `!`]
-      },
-      wide: `normal`,
+    type: 'letter',
+    code: 'Digit1',
+    values: {
+      en: ['1', '!'],
+      ru: ['1', '!'],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Digit2`,
-      values: {
-        en: [`2`, `@`],
-        ru: [`2`, `"`]
-      },
-      wide: `normal`,
+  {
+    type: 'letter',
+    code: 'Digit2',
+    values: {
+      en: ['2', '@'],
+      ru: ['2', '"'],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Digit3`,
-      values: {
-        en: [`3`, `#`],
-        ru: [`3`, `№`]
-      },
-      wide: `normal`,
+  {
+    type: 'letter',
+    code: 'Digit3',
+    values: {
+      en: ['3', '#'],
+      ru: ['3', '№'],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Digit4`,
-      values: {
-        en: [`4`, `$`],
-        ru: [`4`, `%`]
-      },
-      wide: `normal`,
+  {
+    type: 'letter',
+    code: 'Digit4',
+    values: {
+      en: ['4', '$'],
+      ru: ['4', '%'],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Digit5`,
-      values: {
-        en: [`5`, `%`],
-        ru: [`5`, `:`]
-      },
-      wide:  `normal`,
+  {
+    type: 'letter',
+    code: 'Digit5',
+    values: {
+      en: ['5', '%'],
+      ru: ['5', ':'],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Digit6`,
-      values: {
-        en: [`6`, `^`],
-        ru: [`6`, `,`]
-      },
-      wide:  `normal`,
+  {
+    type: 'letter',
+    code: 'Digit6',
+    values: {
+      en: ['6', '^'],
+      ru: ['6', ','],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Digit7`,
-      values: {
-        en: [`7`, `&`],
-        ru: [`7`, `.`]
-      },
-      wide:  `normal`,
+  {
+    type: 'letter',
+    code: 'Digit7',
+    values: {
+      en: ['7', '&'],
+      ru: ['7', '.'],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Digit8`,
-      values: {
-        en: [`8`, `*`],
-        ru: [`8`, `;`]
-      },
-      wide:  `normal`,
+  {
+    type: 'letter',
+    code: 'Digit8',
+    values: {
+      en: ['8', '*'],
+      ru: ['8', ';'],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Digit9`,
-      values: {
-        en: [`9`, `(`],
-        ru: [`9`, `(`]
-      },
-      wide:  `normal`,
+  {
+    type: 'letter',
+    code: 'Digit9',
+    values: {
+      en: ['9', '('],
+      ru: ['9', '('],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Digit0`,
-      values: {
-        en: [`0`, `)`],
-        ru: [`0`, `)`]
-      },
-      wide:  `normal`,
+  {
+    type: 'letter',
+    code: 'Digit0',
+    values: {
+      en: ['0', ')'],
+      ru: ['0', ')'],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Minus`,
-      values: {
-        en: [`-`, `-`],
-        ru: [`-`, `-`]
-      },
-      wide:  `normal`,
+  {
+    type: 'letter',
+    code: 'Minus',
+    values: {
+      en: ['-', '-'],
+      ru: ['-', '-'],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `letter`,
-      code: `Equal`,
-      values: {
-        en: [`=`, `+`],
-        ru: [`=`, `+`]
-      },
-      wide:  `normal`,
+  {
+    type: 'letter',
+    code: 'Equal',
+    values: {
+      en: ['=', '+'],
+      ru: ['=', '+'],
     },
+    wide: 'normal',
+  },
 
-    {
-      type: `function`,
-      code: `Backspace`,
-      value: `Backspace`,
-      wide:  `double`,
-    }
+  {
+    type: 'function',
+    code: 'Backspace',
+    value: 'Backspace',
+    wide: 'double',
+  },
   ],
 
   [
     {
-      type: `function`,
-      code: `Tab`,
-      value: `Tab`,
-      wide:  `double`,
+      type: 'function',
+      code: 'Tab',
+      value: 'Tab',
+      wide: 'double',
     },
 
     {
-      type: `letter`,
-      code: `KeyQ`,
+      type: 'letter',
+      code: 'KeyQ',
       values: {
-        en: [`q`, `Q`],
-        ru: [`й`, `Й`]
+        en: ['q', 'Q'],
+        ru: ['й', 'Й'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyW`,
+      type: 'letter',
+      code: 'KeyW',
       values: {
-        en: [`w`, `W`],
-        ru: [`ц`, `Ц`]
+        en: ['w', 'W'],
+        ru: ['ц', 'Ц'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyE`,
+      type: 'letter',
+      code: 'KeyE',
       values: {
-        en: [`e`, `E`],
-        ru: [`у`, `У`]
+        en: ['e', 'E'],
+        ru: ['у', 'У'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyR`,
+      type: 'letter',
+      code: 'KeyR',
       values: {
-        en: [`r`, `R`],
-        ru: [`к`, `К`]
+        en: ['r', 'R'],
+        ru: ['к', 'К'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyT`,
+      type: 'letter',
+      code: 'KeyT',
       values: {
-        en: [`t`, `T`],
-        ru: [`е`, `Е`]
+        en: ['t', 'T'],
+        ru: ['е', 'Е'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyY`,
+      type: 'letter',
+      code: 'KeyY',
       values: {
-        en: [`y`, `Y`],
-        ru: [`н`, `Н`]
+        en: ['y', 'Y'],
+        ru: ['н', 'Н'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyU`,
+      type: 'letter',
+      code: 'KeyU',
       values: {
-        en: [`u`, `U`],
-        ru: [`г`, `Г`]
+        en: ['u', 'U'],
+        ru: ['г', 'Г'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyI`,
+      type: 'letter',
+      code: 'KeyI',
       values: {
-        en: [`i`, `I`],
-        ru: [`ш`, `Ш`]
+        en: ['i', 'I'],
+        ru: ['ш', 'Ш'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyO`,
+      type: 'letter',
+      code: 'KeyO',
       values: {
-        en: [`o`, `O`],
-        ru: [`щ`, `Щ`]
+        en: ['o', 'O'],
+        ru: ['щ', 'Щ'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyP`,
+      type: 'letter',
+      code: 'KeyP',
       values: {
-        en: [`p`, `P`],
-        ru: [`з`, `З`]
+        en: ['p', 'P'],
+        ru: ['з', 'З'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `BracketLeft`,
+      type: 'letter',
+      code: 'BracketLeft',
       values: {
-        en: [`[`, `{`],
-        ru: [`х`, `Х`]
+        en: ['[', '{'],
+        ru: ['х', 'Х'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `BracketRight`,
+      type: 'letter',
+      code: 'BracketRight',
       values: {
-        en: [`]`, `}`],
-        ru: [`Ъ`, `Ъ`]
+        en: [']', '}'],
+        ru: ['Ъ', 'Ъ'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `function`,
-      code: `Enter`,
-      value: `Enter`,
-      wide:  `double`,
-    }
-  ],
-
-  [
-    {
-      type: `function`,
-      code: `CapsLock`,
-      value: `CapsLock`,
-      wide:  `double`,
-    },
-
-    {
-      type: `letter`,
-      code: `KeyA`,
-      values: {
-        en: [`a`, `A`],
-        ru: [`ф`, `Ф`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `KeyS`,
-      values: {
-        en: [`s`, `S`],
-        ru: [`ы`, `Ы`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `KeyD`,
-      values: {
-        en: [`d`, `D`],
-        ru: [`в`, `В`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `KeyF`,
-      values: {
-        en: [`f`, `F`],
-        ru: [`а`, `А`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `KeyG`,
-      values: {
-        en: [`g`, `G`],
-        ru: [`п`, `П`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `KeyH`,
-      values: {
-        en: [`h`, `H`],
-        ru: [`р`, `Р`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `KeyJ`,
-      values: {
-        en: [`j`, `J`],
-        ru: [`о`, `О`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `KeyK`,
-      values: {
-        en: [`k`, `K`],
-        ru: [`л`, `Л`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `KeyL`,
-      values: {
-        en: [`l`, `L`],
-        ru: [`д`, `Д`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `Semicolon`,
-      values: {
-        en: [`;`, `:`],
-        ru: [`ж`, `Ж`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `Quote`,
-      values: {
-        en: [`'`, `"`],
-        ru: [`э`, `Э`]
-      },
-      wide:  `normal`,
-    },
-
-    {
-      type: `letter`,
-      code: `Backslash`,
-      values: {
-        en: [`\\`, `|`],
-        ru: [`ё`, `Ё`]
-      },
-      wide:  `triple`,
+      type: 'function',
+      code: 'Enter',
+      value: 'Enter',
+      wide: 'double',
     },
   ],
 
   [
     {
-      type: `function`,
-      code: `ShiftLeft`,
-      value: `Shift`,
-      wide:  `double`,
+      type: 'function',
+      code: 'CapsLock',
+      value: 'CapsLock',
+      wide: 'double',
     },
 
     {
-      type: `letter`,
-      code: `IntlBackslash`,
+      type: 'letter',
+      code: 'KeyA',
       values: {
-        en: [`\``, `~`],
-        ru: [`]`, `[`]
+        en: ['a', 'A'],
+        ru: ['ф', 'Ф'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyZ`,
+      type: 'letter',
+      code: 'KeyS',
       values: {
-        en: [`z`, `Z`],
-        ru: [`я`, `Я`]
+        en: ['s', 'S'],
+        ru: ['ы', 'Ы'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyX`,
+      type: 'letter',
+      code: 'KeyD',
       values: {
-        en: [`x`, `X`],
-        ru: [`ч`, `Ч`]
+        en: ['d', 'D'],
+        ru: ['в', 'В'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyC`,
+      type: 'letter',
+      code: 'KeyF',
       values: {
-        en: [`c`, `C`],
-        ru: [`с`, `С`]
+        en: ['f', 'F'],
+        ru: ['а', 'А'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyV`,
+      type: 'letter',
+      code: 'KeyG',
       values: {
-        en: [`v`, `V`],
-        ru: [`м`, `М`]
+        en: ['g', 'G'],
+        ru: ['п', 'П'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyB`,
+      type: 'letter',
+      code: 'KeyH',
       values: {
-        en: [`b`, `B`],
-        ru: [`и`, `И`]
+        en: ['h', 'H'],
+        ru: ['р', 'Р'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyN`,
+      type: 'letter',
+      code: 'KeyJ',
       values: {
-        en: [`n`, `N`],
-        ru: [`т`, `Т`]
+        en: ['j', 'J'],
+        ru: ['о', 'О'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `KeyM`,
+      type: 'letter',
+      code: 'KeyK',
       values: {
-        en: [`m`, `M`],
-        ru: [`ь`, `Ь`]
+        en: ['k', 'K'],
+        ru: ['л', 'Л'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `Comma`,
+      type: 'letter',
+      code: 'KeyL',
       values: {
-        en: [`,`, `<`],
-        ru: [`б`, `Б`]
+        en: ['l', 'L'],
+        ru: ['д', 'Д'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `Period`,
+      type: 'letter',
+      code: 'Semicolon',
       values: {
-        en: [`.`, `>`],
-        ru: [`ю`, `Ю`]
+        en: [';', ':'],
+        ru: ['ж', 'Ж'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `letter`,
-      code: `Slash`,
+      type: 'letter',
+      code: 'Quote',
       values: {
-        en: [`/`, `?`],
-        ru: [`/`, `?`]
+        en: ['\'', '"'],
+        ru: ['э', 'Э'],
       },
-      wide:  `normal`,
+      wide: 'normal',
     },
 
     {
-      type: `function`,
-      code: `ArrowUp`,
-      value: `Up`,
-      wide:  `normal`,
+      type: 'letter',
+      code: 'Backslash',
+      values: {
+        en: ['\\', '|'],
+        ru: ['ё', 'Ё'],
+      },
+      wide: 'triple',
     },
-
-    {
-      type: `function`,
-      code: `ShiftRight`,
-      value: `Shift`,
-      wide:  `double`,
-    }
   ],
 
   [
     {
-      type: `function`,
-      code: `ControlLeft`,
-      value: `Ctrl`,
-      wide:  `normal`,
+      type: 'function',
+      code: 'ShiftLeft',
+      value: 'Shift',
+      wide: 'double',
     },
 
     {
-      type: `function`,
-      code: `AltLeft`,
-      value: `Alt`,
-      wide:  `normal`,
+      type: 'letter',
+      code: 'IntlBackslash',
+      values: {
+        en: ['`', '~'],
+        ru: [']', '['],
+      },
+      wide: 'normal',
     },
 
     {
-      type: `function`,
-      code: `MetaLeft`,
-      value: `Cmd`,
-      wide:  `normal`,
+      type: 'letter',
+      code: 'KeyZ',
+      values: {
+        en: ['z', 'Z'],
+        ru: ['я', 'Я'],
+      },
+      wide: 'normal',
     },
 
     {
-      type: `function`,
-      code: `Space`,
-      value: `Space`,
-      wide:  `space`,
+      type: 'letter',
+      code: 'KeyX',
+      values: {
+        en: ['x', 'X'],
+        ru: ['ч', 'Ч'],
+      },
+      wide: 'normal',
     },
 
     {
-      type: `function`,
-      code: `MetaRight`,
-      value: `Cmd`,
-      wide:  `normal`,
+      type: 'letter',
+      code: 'KeyC',
+      values: {
+        en: ['c', 'C'],
+        ru: ['с', 'С'],
+      },
+      wide: 'normal',
     },
 
     {
-      type: `function`,
-      code: `AltRight`,
-      value: `Alt`,
-      wide:  `normal`,
+      type: 'letter',
+      code: 'KeyV',
+      values: {
+        en: ['v', 'V'],
+        ru: ['м', 'М'],
+      },
+      wide: 'normal',
     },
 
     {
-      type: `function`,
-      code: `ArrowLeft`,
-      value: `Lt`,
-      wide:  `normal`,
+      type: 'letter',
+      code: 'KeyB',
+      values: {
+        en: ['b', 'B'],
+        ru: ['и', 'И'],
+      },
+      wide: 'normal',
     },
 
     {
-      type: `function`,
-      code: `ArrowDown`,
-      value: `Dw`,
-      wide:  `normal`,
+      type: 'letter',
+      code: 'KeyN',
+      values: {
+        en: ['n', 'N'],
+        ru: ['т', 'Т'],
+      },
+      wide: 'normal',
     },
 
     {
-      type: `function`,
-      code: `ArrowRight`,
-      value: `Rt`,
-      wide:  `normal`,
+      type: 'letter',
+      code: 'KeyM',
+      values: {
+        en: ['m', 'M'],
+        ru: ['ь', 'Ь'],
+      },
+      wide: 'normal',
     },
-  ]
-]
+
+    {
+      type: 'letter',
+      code: 'Comma',
+      values: {
+        en: [',', '<'],
+        ru: ['б', 'Б'],
+      },
+      wide: 'normal',
+    },
+
+    {
+      type: 'letter',
+      code: 'Period',
+      values: {
+        en: ['.', '>'],
+        ru: ['ю', 'Ю'],
+      },
+      wide: 'normal',
+    },
+
+    {
+      type: 'letter',
+      code: 'Slash',
+      values: {
+        en: ['/', '?'],
+        ru: ['/', '?'],
+      },
+      wide: 'normal',
+    },
+
+    {
+      type: 'function',
+      code: 'ArrowUp',
+      value: 'Up',
+      wide: 'normal',
+    },
+
+    {
+      type: 'function',
+      code: 'ShiftRight',
+      value: 'Shift',
+      wide: 'double',
+    },
+  ],
+
+  [
+    {
+      type: 'function',
+      code: 'ControlLeft',
+      value: 'Ctrl',
+      wide: 'normal',
+    },
+
+    {
+      type: 'function',
+      code: 'AltLeft',
+      value: 'Alt',
+      wide: 'normal',
+    },
+
+    {
+      type: 'function',
+      code: 'MetaLeft',
+      value: 'Cmd',
+      wide: 'normal',
+    },
+
+    {
+      type: 'function',
+      code: 'Space',
+      value: 'Space',
+      wide: 'space',
+    },
+
+    {
+      type: 'function',
+      code: 'MetaRight',
+      value: 'Cmd',
+      wide: 'normal',
+    },
+
+    {
+      type: 'function',
+      code: 'AltRight',
+      value: 'Alt',
+      wide: 'normal',
+    },
+
+    {
+      type: 'function',
+      code: 'ArrowLeft',
+      value: 'Lt',
+      wide: 'normal',
+    },
+
+    {
+      type: 'function',
+      code: 'ArrowDown',
+      value: 'Dw',
+      wide: 'normal',
+    },
+
+    {
+      type: 'function',
+      code: 'ArrowRight',
+      value: 'Rt',
+      wide: 'normal',
+    },
+  ],
+];
+
+export default data;

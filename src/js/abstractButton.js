@@ -1,11 +1,11 @@
-export class AbstractButton {
+class AbstractButton {
   constructor() {
     if (new.target === AbstractButton) {
-      throw new TypeError("Cannot construct Abstract instances directly");
+      throw new TypeError('Cannot construct Abstract instances directly');
     }
   }
 
-  bind(){}
+  bind() {}
 
   createDom() {}
 
@@ -15,3 +15,5 @@ export class AbstractButton {
 
   updateValue() {}
 }
+
+export default AbstractButton;

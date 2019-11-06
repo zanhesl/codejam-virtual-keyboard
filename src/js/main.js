@@ -1,6 +1,5 @@
-import {LetterButton, FunctionButton} from './buttons.js';
-import {initiateButtons} from './initiate.js';
-import {bindFunction} from './functionKeys.js';
+import initiateButtons from './initiate';
+import bindFunction from './functionKeys';
 
-const buttons  = initiateButtons();
+const buttons = initiateButtons();
 bindFunction(buttons);

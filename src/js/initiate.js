@@ -1,23 +1,24 @@
-import {LetterButton, FunctionButton} from './buttons.js';
-import {data} from './data.js';
+import LetterButton from './buttons';
+import FunctionButton from './buttonsFunc';
+import data from './data';
 
-export function initiateButtons() {
-  const buttonsContainer = document.createElement(`div`);
-  buttonsContainer.classList.add(`buttons-container`);
+function initiateButtons() {
+  const buttonsContainer = document.createElement('div');
+  buttonsContainer.classList.add('buttons-container');
 
-  const input = document.createElement(`input`);
-  input.classList.add(`main-input`);
-  input.type = `text`;
+  const input = document.createElement('input');
+  input.classList.add('main-input');
+  input.type = 'text';
   buttonsContainer.appendChild(input);
 
   const classContainer = [];
 
-  for (let row of data) {
-    const buttonsRow = document.createElement(`div`);
-    buttonsRow.classList.add(`row`);
+  for (const row of data) {
+    const buttonsRow = document.createElement('div');
+    buttonsRow.classList.add('row');
     const classRow = [];
-    for (let key of row) {
-      if (key.type == `letter`) {
+    for (const key of row) {
+      if (key.type === 'letter') {
         const keyNode = new LetterButton(key.code, key.values, key.wide);
         buttonsRow.appendChild(keyNode.createDom());
         classRow.push(keyNode);
@@ -31,7 +32,9 @@ export function initiateButtons() {
     classContainer.push(classRow);
   }
 
-  document.querySelector(`body`).appendChild(buttonsContainer);
+  document.querySelector('body').appendChild(buttonsContainer);
 
   return classContainer;
 }
+
+export default initiateButtons;
