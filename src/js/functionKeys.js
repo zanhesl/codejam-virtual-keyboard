@@ -21,6 +21,7 @@ function bindFunction(keysList) {
   // Shift
   document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Shift') {
+      console.log(1);
       for (const row of keysList) {
         for (const key of row) {
           key.isShift = !key.isShift;
@@ -32,6 +33,7 @@ function bindFunction(keysList) {
 
   document.addEventListener('keyup', (evt) => {
     if (evt.key === 'Shift') {
+      console.log(2);
       for (const row of keysList) {
         for (const key of row) {
           key.isShift = !key.isShift;
