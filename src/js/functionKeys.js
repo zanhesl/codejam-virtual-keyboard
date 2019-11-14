@@ -3,6 +3,8 @@ const LANG_CHANGE_1 = 'AltLeft';
 const LANG_CHANGE_2 = 'AltRight';
 const LANG_CHANGE_3 = 'ShiftRight';
 
+let keyDownFlag = true;
+
 
 function bindFunction(keysList) {
   const input = document.querySelector('.main-input');
@@ -20,26 +22,26 @@ function bindFunction(keysList) {
   });
   // Shift
   document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Shift') {
-      console.log(1);
+    if ((evt.key === 'Shift')||(keyDownFlag)) {
       for (const row of keysList) {
         for (const key of row) {
           key.isShift = !key.isShift;
           key.updateValue();
         }
       }
+      keyDownFlag = false;
     }
   });
 
   document.addEventListener('keyup', (evt) => {
     if (evt.key === 'Shift') {
-      console.log(2);
       for (const row of keysList) {
         for (const key of row) {
           key.isShift = !key.isShift;
           key.updateValue();
         }
       }
+      keyDownFlag = true;
     }
   });
 
