@@ -649,7 +649,7 @@
         value: 'Ctrl',
         wide: 'double',
       },
-
+      
       {
         type: 'function',
         code: 'AltLeft',
@@ -749,6 +749,9 @@
   const LANG_CHANGE_2 = 'AltRight';
   const LANG_CHANGE_3 = 'ShiftRight';
 
+  let keyDownFlag = true;
+  let keyCapsFlag = true;
+
 
   function bindFunction(keysList) {
     const input = document.querySelector('.main-input');
@@ -766,13 +769,14 @@
     });
     // Shift
     document.addEventListener('keydown', (evt) => {
-      if (evt.key === 'Shift') {
+      if ((evt.key === 'Shift')&&(keyDownFlag)) {
         for (const row of keysList) {
           for (const key of row) {
             key.isShift = !key.isShift;
             key.updateValue();
           }
         }
+        keyDownFlag = false;
       }
     });
 
@@ -784,6 +788,7 @@
             key.updateValue();
           }
         }
+        keyDownFlag = true;
       }
     });
 
@@ -808,7 +813,7 @@
     });
     // CAPS
     document.addEventListener('keydown', (evt) => {
-      if (evt.code === 'CapsLock') {
+      if ((evt.code === 'CapsLock') && (keyCapsFlag)) {
         for (const row of keysList) {
           for (const key of row) {
             if (key.code.indexOf('Key') >= 0) {
@@ -816,6 +821,7 @@
               key.updateValue();
             }
           }
+          keyCapsFlag = false;
         }
       }
     });
@@ -831,6 +837,7 @@
             }
           }
         }
+        keyCapsFlag = true;
       }
     });
 

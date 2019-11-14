@@ -532,7 +532,7 @@ const data = [
       value: 'Ctrl',
       wide: 'double',
     },
-
+    
     {
       type: 'function',
       code: 'AltLeft',
