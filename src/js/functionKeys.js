@@ -22,7 +22,7 @@ function bindFunction(keysList) {
   });
   // Shift
   document.addEventListener('keydown', (evt) => {
-    if ((evt.key === 'Shift')||(keyDownFlag)) {
+    if ((evt.key === 'Shift')&&(keyDownFlag)) {
       for (const row of keysList) {
         for (const key of row) {
           key.isShift = !key.isShift;
