@@ -750,6 +750,7 @@
   const LANG_CHANGE_3 = 'ShiftRight';
 
   let keyDownFlag = true;
+  let keyCapsFlag = true;
 
 
   function bindFunction(keysList) {
@@ -812,7 +813,7 @@
     });
     // CAPS
     document.addEventListener('keydown', (evt) => {
-      if (evt.code === 'CapsLock') {
+      if ((evt.code === 'CapsLock') && (keyCapsFlag)) {
         for (const row of keysList) {
           for (const key of row) {
             if (key.code.indexOf('Key') >= 0) {
@@ -820,6 +821,7 @@
               key.updateValue();
             }
           }
+          keyCapsFlag = false;
         }
       }
     });
@@ -835,6 +837,7 @@
             }
           }
         }
+        keyCapsFlag = true;
       }
     });
 

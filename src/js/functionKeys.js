@@ -4,6 +4,7 @@ const LANG_CHANGE_2 = 'AltRight';
 const LANG_CHANGE_3 = 'ShiftRight';
 
 let keyDownFlag = true;
+let keyCapsFlag = true;
 
 
 function bindFunction(keysList) {
@@ -66,7 +67,7 @@ function bindFunction(keysList) {
   });
   // CAPS
   document.addEventListener('keydown', (evt) => {
-    if (evt.code === 'CapsLock') {
+    if ((evt.code === 'CapsLock') && (keyCapsFlag)) {
       for (const row of keysList) {
         for (const key of row) {
           if (key.code.indexOf('Key') >= 0) {
@@ -74,6 +75,7 @@ function bindFunction(keysList) {
             key.updateValue();
           }
         }
+        keyCapsFlag = false
       }
     }
   });
@@ -89,6 +91,7 @@ function bindFunction(keysList) {
           }
         }
       }
+      keyCapsFlag = true;
     }
   });
 
